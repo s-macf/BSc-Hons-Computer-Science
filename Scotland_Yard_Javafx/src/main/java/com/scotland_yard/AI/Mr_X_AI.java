@@ -20,14 +20,7 @@ public class Mr_X_AI {
 
         ArrayList<TransportType> transportOptions = mr_x.getCurrentLocation().getNeighbourTransportMethods(result);
         Ticket playedTicket = TransportUtilities.transportTypeToTicket(transportOptions.get(0));
-        // If can play concealed
-        if (GameEngine.mrXRevealRounds.contains(roundCount - 1)) {
-            if (mr_x.getCurrentLocation().getTransportType().equals(TransportType.BUS) || mr_x.getCurrentLocation().getTransportType().equals(TransportType.UNDERGROUND)) {
-                if (mr_x.getRemainingTickets(Ticket.CONCEALED) > 0) {
-                    playedTicket = Ticket.CONCEALED;
-                }
-            }
-        }
+
         return new Pair<>(result, playedTicket);
     }
 
