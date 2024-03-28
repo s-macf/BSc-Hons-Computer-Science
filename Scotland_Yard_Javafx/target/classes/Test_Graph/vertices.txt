@@ -1,7 +1,0 @@
-1	taxi
-2	taxi
-3	bus
-6	bus
-7	bus
-4	underground
-5	underground
