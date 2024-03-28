@@ -18,14 +18,6 @@ import java.util.HashSet;
 public class Detective_AI {
 
     public static Pair<Location, Ticket> getMove(Detective detective, HashMap<Location, ArrayList<TransportType>> availableMovesHashMap, int currentRound, Mr_X mr_x) {
-        if (GameEngine.mrXRevealRounds.contains(currentRound)) {
-            if (detective.getCurrentLocation().getNeighbours().contains(mr_x.getCurrentLocation()) && availableMovesHashMap.containsKey(mr_x.getCurrentLocation())) {
-                ArrayList<TransportType> transportOptions = detective.getCurrentLocation().getNeighbourTransportMethods(mr_x.getCurrentLocation());
-                int randInt = RandomGenerator.getInt(transportOptions.size());
-                Ticket usedTicket = TransportUtilities.transportTypeToTicket(transportOptions.get(randInt));
-                return new Pair<>(mr_x.getCurrentLocation(), usedTicket);
-            }
-        }
         ArrayList<Location> availableMoves = new ArrayList<>(availableMovesHashMap.keySet());
         if (availableMoves.size() == 0) {
             return new Pair<>(null, null);
