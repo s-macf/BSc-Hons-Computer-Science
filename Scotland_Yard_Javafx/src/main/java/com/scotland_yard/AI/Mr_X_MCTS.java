@@ -15,7 +15,6 @@ import java.util.concurrent.TimeUnit;
 
 public class Mr_X_MCTS {
     private static final int NUMBER_OF_ITERATIONS = 2500;
-    private static final long TIME_LIMIT = 1000L;
     private static final int UCB1_CONSTANT = 2;
     public MCTS_Node root;
 
@@ -204,13 +203,9 @@ public class Mr_X_MCTS {
 
     public Location startMCTS() {
 
-        for (long stop=System.nanoTime()+ TimeUnit.MILLISECONDS.toNanos(TIME_LIMIT);stop > System.nanoTime();){
-            mcts_run(0, root);
-        }
-
-//        for (int i = 0; i < NUMBER_OF_ITERATIONS; i++) {
-//            mcts_run(0, root);
-//        }
+       for (int i = 0; i < NUMBER_OF_ITERATIONS; i++) {
+           mcts_run(0, root);
+       }
 
         MCTS_Node best_result_node = this.root.children.get(0);
         double best_result = calc_UCB1(best_result_node, this.root.number_of_visits);
