@@ -204,7 +204,7 @@ public class Mr_X_MCTS {
 
     public Location startMCTS() {
 
-        for (long stop=System.nanoTime()+ TimeUnit.MILLISECONDS.toNanos(1000);stop > System.nanoTime();){
+        for (long stop=System.nanoTime()+ TimeUnit.MILLISECONDS.toNanos(TIME_LIMIT);stop > System.nanoTime();){
             mcts_run(0, root);
         }
 
